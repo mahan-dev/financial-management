@@ -26,12 +26,14 @@
       "@/elements/*": ["app/components/elements/*"],
       "@/modules/*": ["app/components/modules/*"],
       "@/templates/*": ["app/components/templates/*"],
+      "@/layout/*": ["app/components/layout/*"],
+      "@/utils/*":["app/utils/*"],
       
       "@/models/*": ["app/models/*"],
 
 
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "postcss.config.js", "tailwind.config.ts"],
   "exclude": ["node_modules"]
 }

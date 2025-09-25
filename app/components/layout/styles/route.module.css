@@ -1,0 +1,11 @@
+.container {
+    @apply mx-2 my-2;
+}
+
+.container__header {
+    @apply flex  justify-between;
+}
+
+.container__header, .container__footer {
+    @apply  bg-blue-600 text-white rounded-md px-3 py-3;
+}
