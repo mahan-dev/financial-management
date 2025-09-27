@@ -28,6 +28,7 @@
       "@/templates/*": ["app/components/templates/*"],
       "@/layout/*": ["app/components/layout/*"],
       "@/utils/*":["app/utils/*"],
+      "@/providers/*":["app/providers/*"],
       
       "@/models/*": ["app/models/*"],
 

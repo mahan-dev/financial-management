@@ -13,5 +13,5 @@ const userSchema = new Schema<userInterface>({
 });
 
 const User: Model<userInterface> =
-  models.user || model<userInterface>("user", userSchema);
+  models.financeDb || model<userInterface>("financeDb", userSchema);
 export default User;

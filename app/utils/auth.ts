@@ -5,5 +5,9 @@ const verifyPassword = async (password: string, hashPassword: string) => {
   return isValid;
 };
 
+const hashPassword = async (password: string) => {
+  const hashPass = await bcrypt.hash(password, 10);
+  return hashPass
+};
 
-export {verifyPassword}
+export { verifyPassword, hashPassword };
