@@ -1,0 +1,5 @@
+.container h2 {
+
+    @apply text-2xl text-blue-600 max-sm:px-3;
+
+}

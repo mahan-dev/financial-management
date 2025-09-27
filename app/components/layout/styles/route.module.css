@@ -1,11 +1,25 @@
 .container {
-    @apply mx-2 my-2;
+    @apply max-w-[1200px] mx-auto my-2 px-2;
 }
 
 .container__header {
-    @apply flex  justify-between;
+    @apply flex justify-between;
 }
 
-.container__header, .container__footer {
-    @apply  bg-blue-600 text-white rounded-md px-3 py-3;
+.container__header,
+.container__footer {
+    @apply bg-blue-600 text-white rounded-md px-3 py-3;
+}
+
+.container__footer {
+    @apply flex justify-between items-center text-[0.9rem] max-sm:flex-wrap max-sm:mt-16;
+}
+
+.footer__list {
+    @apply max-sm:w-full max-sm:flex max-sm:justify-between max-sm:mt-4;
+
+   li::before {
+        content: "•";
+        @apply text-white pl-2;
+    }
 }

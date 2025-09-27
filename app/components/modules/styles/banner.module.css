@@ -1,0 +1,19 @@
+.container {
+    @apply flex flex-col items-center mt-28 max-sm:mt-12 ;
+}
+
+.container__content {
+    box-shadow: 0 0 12px rgba(0, 30, 255, 0.2);
+    @apply flex items-center gap-6 mt-20 p-4 rounded-md max-[992px]:flex-wrap max-[992px]:shadow-none max-[992px]:justify-center max-sm:mt-3  ;
+    p{
+        @apply text-justify;
+    }
+}
+
+.container__content p {
+    @apply text-gray-700;
+}
+
+.container__content img {
+    @apply  rounded-md  max-sm:w-full;
+} 
