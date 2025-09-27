@@ -1,0 +1,25 @@
+.container {
+    @apply w-[300px] text-[1.1rem] flex flex-col  items-center mt-24 ;
+}
+
+.container h2 {
+    @apply text-center text-[1.6rem] mb-4 text-blue-600 font-semibold;
+}
+
+.container__form {
+    @apply flex flex-col p-8 border-2 border-blue-600 rounded-md  ;
+    label {
+        @apply text-blue-600 mb-1;
+    }
+
+}
+
+.container__form input {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    @apply mb-4 px-3 py-1 caret-blue-600 border-2 text-gray-600 rounded-md transition-all duration-150;
+    &:focus {
+        @apply border-2 border-blue-600
+    }
+
+}
+

@@ -1,0 +1,11 @@
+.container{
+    @apply flex flex-col items-center;
+}
+
+
+.container__footer{
+    @apply flex gap-3 items-center text-gray-600 mt-4;
+    a{
+        @apply text-blue-600 border-b-2 border-blue-600 transition-all duration-100 hover:opacity-60
+    }
+}

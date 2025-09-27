@@ -17,7 +17,7 @@ const layout = ({ children }: layoutProps) => {
           </li>
         </ul>
 
-        <span>ورود</span>
+        <Link href={"/signup"}>ورود</Link>
       </header>
 
       <main className="min-h-[100vh]">{children}</main>
