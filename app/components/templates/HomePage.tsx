@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "@/modules/Banner";
 import Management from "@/modules/Management";
-import styles from "@/modules/styles/home.module.css"
+import styles from "@/modules/styles/home/route.module.css"
 
 const HomePage = () => {
   return (
