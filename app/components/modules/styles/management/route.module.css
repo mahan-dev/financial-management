@@ -1,17 +1,14 @@
 .container {
     @apply flex flex-col items-center mt-20 max-sm:mt-6;
 
-    h2 {
-        @apply text-2xl text-blue-600;
-    }
 }
 
-.container h2 {
+.container__title {
     @apply text-2xl text-blue-600;
 }
 
-h2::before,
-h2::after {
+.container__title::before,
+.container__title::after {
     content: "";
     display: inline-block;
     width: 50px;
@@ -26,8 +23,8 @@ h2::after {
 
 }
 
-h2::after,
-h2::before {
+.container__title::after,
+.container__title::before {
 
     margin-inline: 0.5rem;
 

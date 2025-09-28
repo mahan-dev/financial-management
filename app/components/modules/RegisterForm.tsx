@@ -1,7 +1,7 @@
 "use client";
 import React, { SetStateAction } from "react";
 import { formAuth } from "@/templates/interface/formInterface";
-import styles from "@/modules/styles/registerForm.module.css";
+import styles from "@/modules/styles/register/route.module.css";
 import Loader from "@/app/loader/Loader";
 
 interface RegisterProps {
@@ -31,7 +31,7 @@ const RegisterForm = ({
   return (
     <div className={styles.container}>
       <div className={styles.container__content}>
-        <h2>{title}</h2>
+        <h2 className={styles.content_title}>{title}</h2>
 
         <form className={styles.container__form} onSubmit={submitHandler}>
           <label htmlFor="email">ایمیل :</label>

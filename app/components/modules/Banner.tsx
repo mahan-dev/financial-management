@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import styles from "@/modules/styles/banner.module.css";
+import styles from "@/modules/styles/banner/route.module.css";
 
 import pic from "@/public/images/pic-1.jpg";
 
@@ -11,7 +11,7 @@ interface BannerPros {
 const Banner = ({ title }: BannerPros) => {
   return (
     <div className={styles.container}>
-      <h2>{title} </h2>
+      <h2 className={styles.container__title}>{title} </h2>
 
       <div className={styles.container__content}>
         <Image

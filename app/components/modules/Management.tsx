@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/modules/styles/management.module.css";
+import styles from "@/modules/styles/management/route.module.css";
 import Image from "next/image";
 import pic from "@/public/images/pic-2.jpg";
 
@@ -9,7 +9,7 @@ interface ManagementProps {
 const Management = ({ title }: ManagementProps) => {
   return (
     <div className={styles.container}>
-      <h2>{title}</h2>
+      <h2 className={styles.container__title} >{title}</h2>
 
 
       <div className={styles.container__content}>

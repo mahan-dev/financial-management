@@ -1,0 +1,15 @@
+.container{
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    @apply w-[170px] rounded-md p-4;
+}
+
+.container__list {
+    @apply flex flex-col gap-1 text-blue-600;
+
+    li a {
+        @apply flex items-center gap-2;
+    }
+    li a svg{ 
+        @apply text-[1.3rem]
+    }
+}
