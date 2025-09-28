@@ -4,9 +4,8 @@ import Link from "next/link";
 
 import RegisterForm from "@/modules/RegisterForm";
 import styles from "@/templates/styles/signupPage/route.module.css";
-import axios from "axios";
-import { formAuth } from "@/templates/interface/formInterface";
 import { signupHandler } from "@/app/helper/signUp/signupHandler";
+import { useRouter } from "next/navigation";
 
 const SignupPage = () => {
   const [form, setForm] = useState({
@@ -14,10 +13,14 @@ const SignupPage = () => {
     password: "",
     rePassword: "",
   });
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
-    await signupHandler({form})
+    const res = await signupHandler({ form, setLoading });
+    if(res) router.push("/signin")
   };
   return (
     <div className={styles.container}>
@@ -25,6 +28,7 @@ const SignupPage = () => {
         submitHandler={submitHandler}
         form={form}
         setForm={setForm}
+        loading={loading}
         title={" فرم ثبت نام "}
         rePassword={true}
         button="ثبت نام"

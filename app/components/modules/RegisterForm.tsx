@@ -1,13 +1,15 @@
 "use client";
-import React, { SetStateAction, useEffect, useState } from "react";
-import styles from "@/modules/styles/registerForm.module.css";
+import React, { SetStateAction } from "react";
 import { formAuth } from "@/templates/interface/formInterface";
+import styles from "@/modules/styles/registerForm.module.css";
+import Loader from "@/app/loader/Loader";
 
 interface RegisterProps {
   title: string;
   submitHandler: (e: React.FormEvent) => void;
   form: formAuth;
   setForm: React.Dispatch<SetStateAction<formAuth>>;
+  loading: boolean;
   rePassword?: boolean;
   button: string;
 }
@@ -16,6 +18,7 @@ const RegisterForm = ({
   submitHandler,
   form,
   setForm,
+  loading,
   rePassword,
   button,
 }: RegisterProps) => {
@@ -49,9 +52,9 @@ const RegisterForm = ({
           />
           {rePassword && (
             <>
-              <label htmlFor="rePassword">تکرار رمزعبور</label>
+              <label htmlFor="rePassword">تکرار رمزعبور :</label>
               <input
-                type="text"
+                type="password"
                 id="rePassword"
                 name="rePassword"
                 placeholder="تکرار رمزعبور"
@@ -59,9 +62,15 @@ const RegisterForm = ({
               />
             </>
           )}
-          <button className="mt-4" type="submit">
-            {button}
-          </button>
+          <>
+            {loading ? (
+              <Loader />
+            ) : (
+              <button className="mt-4" type="submit">
+                {button}
+              </button>
+            )}
+          </>
         </form>
       </div>
     </div>

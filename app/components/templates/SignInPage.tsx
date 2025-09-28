@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import RegisterForm from "@/modules/RegisterForm";
 import styles from "@/templates/styles/signinPage/route.module.css";
+import RegisterForm from "@/modules/RegisterForm";
 import { signInHandler } from "@/helper/signIn/signinHandler";
 
 const SignInPage = () => {
@@ -12,11 +13,15 @@ const SignInPage = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password } = form;
 
-    await signInHandler({ email, password });
+    const res = await signInHandler({ email, password, setLoading });
+    if (res) router.push("/dashboard");
   };
   return (
     <div className={styles.container}>
@@ -24,6 +29,7 @@ const SignInPage = () => {
         submitHandler={submitHandler}
         form={form}
         setForm={setForm}
+        loading={loading}
         title="فرم ورود"
         button="ورود"
       />
