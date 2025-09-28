@@ -24,9 +24,7 @@ const RegisterForm = ({
 
     setForm({ ...form, [name]: value });
   };
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
+
   return (
     <div className={styles.container}>
       <div className={styles.container__content}>
@@ -41,9 +39,9 @@ const RegisterForm = ({
             placeholder="ایمیل"
             onChange={changeHandler}
           />
-          <label htmlFor="password">رمزعبور</label>
+          <label htmlFor="password">رمزعبور :</label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             placeholder="رمزعبور"

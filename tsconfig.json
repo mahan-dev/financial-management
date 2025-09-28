@@ -29,6 +29,7 @@
       "@/layout/*": ["app/components/layout/*"],
       "@/utils/*":["app/utils/*"],
       "@/providers/*":["app/providers/*"],
+      "@/helper/*":["app/helper/*"],
       
       "@/models/*": ["app/models/*"],
 
