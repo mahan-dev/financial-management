@@ -7,11 +7,12 @@ import { Response } from "@/helper/interface/Response";
 interface AddProps {
   form: FormValues;
   setForm: React.Dispatch<SetStateAction<FormValues>>;
+  setLoading: React.Dispatch<SetStateAction<boolean>>;
 }
-export const addHandler = async ({ form, setForm }: AddProps) => {
+export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
   try {
     const { title, description, price, category } = form;
-
+    setLoading(true);
     if (
       !title ||
       !description ||
@@ -38,6 +39,7 @@ export const addHandler = async ({ form, setForm }: AddProps) => {
         description: "",
         price: "",
         category: ["none"],
+        transactionDate: new Date(),
       });
     }
     return true;
@@ -45,5 +47,7 @@ export const addHandler = async ({ form, setForm }: AddProps) => {
     toast.error("مشکلی رخ داده است", { duration: 2000 });
     console.log("error", error);
     return false;
+  } finally {
+    setLoading(false);
   }
 };

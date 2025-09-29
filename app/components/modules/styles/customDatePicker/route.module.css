@@ -1,0 +1,8 @@
+.datePicker {
+    @apply px-2 py-1 text-blue-600 border-2 cursor-pointer rounded-md outline-none transition-all duration-200 ease-linear;
+
+    &:hover,
+    &:focus {
+        @apply border-2 border-blue-600;
+    }
+}

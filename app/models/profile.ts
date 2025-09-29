@@ -5,6 +5,7 @@ interface ProfileSchema {
   description: string;
   price: string;
   category: string[];
+  transactionDate: Date;
   userId: object;
 }
 
@@ -25,6 +26,11 @@ const profile = new Schema<ProfileSchema>(
     category: {
       type: [String],
       enum: ["none", "coffee", "store", "bill", "clothe", "other"],
+    },
+
+    transactionDate: {
+      required: true,
+      type: Date,
     },
     userId: {
       type: Schema.Types.ObjectId,

@@ -5,14 +5,19 @@ import styles from "@/modules/styles/transactionsInput/route.module.css";
 import Categories from "@/modules/Categories";
 import { FormValues } from "@/modules/interface/FormValues";
 import { addHandler } from "@/app/helper/transactionInput/AddHandler";
+import Loader from "@/app/loader/Loader";
+import DatePicker from "@/app/components/modules/CustomDatePicker";
 
 const TransactionsInput = () => {
   const [form, setForm] = useState<FormValues>({
     title: "",
     description: "",
     price: "",
-    category:["none"],
+    category: ["none"],
+    transactionDate: new Date(),
   });
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   const inputValues = [
     {
@@ -24,7 +29,7 @@ const TransactionsInput = () => {
     {
       id: "description",
       name: "description",
-      title: "توضحیات",
+      title: "توضیحات",
       type: "text",
     },
     {
@@ -43,9 +48,8 @@ const TransactionsInput = () => {
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await addHandler({form, setForm})
+    await addHandler({ form, setForm, setLoading });
   };
-
 
   return (
     <section className={styles.container}>
@@ -64,9 +68,21 @@ const TransactionsInput = () => {
           );
         })}
 
-        <Categories form={form} setForm={setForm} name="category" label="دسته بندی" />
+        <Categories
+          form={form}
+          setForm={setForm}
+          name="category"
+          label="دسته بندی"
+        />
+        <DatePicker form={form} setForm={setForm} title="تاریخ تراکنش" />
 
-        <button type="submit"> ذخیره تراکنش </button>
+        {loading ? (
+          <Loader />
+        ) : (
+          <button type="submit" disabled={loading}>
+            ذخیره تراکنش
+          </button>
+        )}
       </form>
     </section>
   );
