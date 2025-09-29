@@ -1,0 +1,4 @@
+.container__title {
+    @apply p-2 text-[1.2rem] font-semibold text-blue-600 bg-blue-200 rounded-md;
+}
+

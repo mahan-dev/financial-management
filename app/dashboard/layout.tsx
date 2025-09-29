@@ -1,19 +1,11 @@
 import React from "react";
-import SideBar from "@/modules/SideBar";
+import DashboardPage from "@/app/components/templates/DashboardAsidePage";
 
 interface DashboardProps {
   children: React.ReactNode;
 }
 const DashboardLayout = ({ children }: DashboardProps) => {
-  return (
-    <div className="mt-12">
-      <aside>
-        <SideBar />
-      </aside>
-
-      <div>{children}</div>
-    </div>
-  );
+  return <DashboardPage>{children}</DashboardPage>;
 };
 
 export default DashboardLayout;

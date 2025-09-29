@@ -1,0 +1,7 @@
+.container {
+    @apply w-fit flex flex-col mt-5 first:mt-0;
+}
+.container input {
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    @apply mt-2 p-2 text-gray-600 rounded-md ;
+}
