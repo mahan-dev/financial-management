@@ -1,3 +1,11 @@
 .container {
     @apply mt-8
 }
+
+.container form {
+    @apply flex flex-col
+}
+
+.container button {
+    @apply bg-blue-600 text-white mt-6 py-1 rounded-md transition-all duration-200 ease-linear hover:bg-opacity-70 ;
+}

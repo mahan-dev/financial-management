@@ -7,6 +7,7 @@ interface TextProps {
   type: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  categories?: [];
 }
 const TextInput = ({ name, title, type, onChange, value }: TextProps) => {
   return (
