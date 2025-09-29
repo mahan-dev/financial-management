@@ -1,9 +1,10 @@
 "use client";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import TextInput from "@/modules/TextInput";
 import styles from "@/modules/styles/transactionsInput/route.module.css";
 import Categories from "@/modules/Categories";
 import { FormValues } from "@/modules/interface/FormValues";
+import { addHandler } from "@/app/helper/transactionInput/AddHandler";
 
 const TransactionsInput = () => {
   const [form, setForm] = useState<FormValues>({
@@ -37,18 +38,14 @@ const TransactionsInput = () => {
   type FormKeys = keyof typeof form;
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(name);
-    setForm({ ...form, [name as FormKeys]: [value] });
+    setForm({ ...form, [name as FormKeys]: value });
   };
 
-  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("hi");
+    await addHandler({form, setForm})
   };
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
 
   return (
     <section className={styles.container}>
@@ -62,12 +59,12 @@ const TransactionsInput = () => {
               title={title}
               type={type}
               onChange={changeHandler}
-              value={form[name as FormKeys]}
+              value={form[name]}
             />
           );
         })}
 
-        <Categories form={form} setForm={setForm} name="category" />
+        <Categories form={form} setForm={setForm} name="category" label="دسته بندی" />
 
         <button type="submit"> ذخیره تراکنش </button>
       </form>

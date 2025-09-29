@@ -1,5 +1,5 @@
-.container{
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+.container {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     @apply flex flex-shrink-0 w-[170px] h-fit rounded-md p-4;
 }
 
@@ -7,14 +7,22 @@
 
 .container__list {
     @apply flex flex-col flex-shrink-0 text-blue-600;
+
     li {
-        @apply  rounded-md;
+        @apply rounded-md last:text-red-600 hover:hover:bg-blue-200;
+
+        &:last-child {
+            @apply text-red-600 hover:bg-red-200;
+
+
+        }
     }
 
     li a {
-        @apply flex items-center gap-2 py-1 px-2 transition-all duration-200 ease-linear  rounded-md hover:mr-2 hover:bg-blue-200;
+        @apply flex items-center gap-2 py-1 px-2 transition-all duration-200 ease-linear rounded-md hover:mr-2;
     }
-    li a svg{ 
+
+    li a svg {
         @apply text-[1.3rem]
     }
 }

@@ -29,7 +29,7 @@ const SideBar = () => {
             ثبت تراکنش
           </Link>
         </li>
-        <li>
+        <li className={styles.exit}>
           <Link href={"/dashboard/add-transactions"}>
             <IoExit />
             خروج
