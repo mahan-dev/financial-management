@@ -4,11 +4,16 @@ import { getServerSession } from "next-auth";
 
 import DashboardPage from "@/templates/DashboardPage";
 import { authOptions } from "@/helper/auth/authOption";
+import connectDb from "@/utils/ConnectDb";
+import User from "../models/user";
 
 const Dashboard = async () => {
+  await connectDb();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/signup");
-  return <DashboardPage />;
+
+  const user = await User.findOne({ email: session.user.email });
+  return <DashboardPage date={user.createdAt} />;
 };
 
 export default Dashboard;

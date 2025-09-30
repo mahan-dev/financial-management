@@ -13,15 +13,9 @@ export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
   try {
     const { title, description, price, category } = form;
     setLoading(true);
-    if (
-      !title ||
-      !description ||
-      !price ||
-      !category ||
-      category.includes("none")
-    ) {
+    if (!title || !description || !price || category.includes("none")) {
       toast.error("فیلد هارا خالی نگذارید", { duration: 2000 });
-      console.log(category);
+
       return;
     }
 
@@ -31,6 +25,7 @@ export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
     }
 
     const res = await axios.post<Response>("/api/profile/add", form);
+    console.log(res);
     const successMessage = res.status === 200;
     if (successMessage) {
       toast.success(res.data.message);

@@ -7,7 +7,7 @@ const Header = () => {
     <header className={styles.container__header}>
       <ul>
         <li>
-          <Link href={""}>صفحه اصلی</Link>
+          <Link href={"/"}>صفحه اصلی</Link>
         </li>
       </ul>
 

@@ -1,12 +1,12 @@
 .container {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    @apply flex flex-shrink-0 w-[170px] h-fit rounded-md p-4;
+    @apply flex flex-shrink-0 w-[180px] h-fit rounded-md p-4;
 }
 
 
 
 .container__list {
-    @apply flex flex-col flex-shrink-0 text-blue-600;
+    @apply w-full flex flex-col flex-shrink-0 text-blue-600 break-all;
 
     li {
         @apply rounded-md last:text-red-600 hover:hover:bg-blue-200;

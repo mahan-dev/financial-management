@@ -32,7 +32,7 @@ export const authOptions: AuthOptions = {
           throw new Error(" لطفا اطلاعات معتبر وارد کنید");
 
         const user = await UserModel.findOne({ email });
-        if (!user) throw new Error("ا ابتدا حساب کاربری ایجاد کنید ");
+        if (!user) throw new Error(" ابتدا حساب کاربری ایجاد کنید ");
         const isValid = await verifyPassword(password, user.password);
         if (!isValid) throw new Error(" ایمیل یا پسورد معتبر نیست ");
         return {

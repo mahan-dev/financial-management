@@ -1,9 +1,9 @@
-import { FormValues } from "@/app/components/modules/interface/FormValues";
-import { authOptions } from "@/app/helper/auth/authOption";
-import Profile from "@/app/models/profile";
-// import Profile from "@/app/models/profile";
-import User from "@/app/models/user";
-import connectDb from "@/app/utils/ConnectDb";
+import { FormValues } from "@/modules/interface/FormValues";
+import { authOptions } from "@/helper/auth/authOption";
+import Profile from "@/models/profile";
+import User from "@/models/user";
+import connectDb from "@/utils/ConnectDb";
+import { Types } from "mongoose";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -11,8 +11,7 @@ export const POST = async (req: Request) => {
   try {
     await connectDb();
     const res: FormValues = await req.json();
-    console.log(res);
-    const { title, description, price, category } = res;
+    const { title, description, price, category, transactionDate } = res;
 
     const session = await getServerSession(authOptions);
     if (!session)
@@ -39,11 +38,12 @@ export const POST = async (req: Request) => {
       description,
       price: +price,
       category,
+      transactionDate,
+      userId: new Types.ObjectId(user._id),
     });
-    console.log(newProfile);
 
     return NextResponse.json(
-      { status: "Success", message: "دخیره شد", data: newProfile },
+      { status: "Success", message: "ذخیره شد", data: newProfile },
       { status: 200 }
     );
   } catch {

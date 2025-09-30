@@ -1,7 +1,9 @@
+import MyTransactionsPage from "@/app/components/templates/MyTransactionsPage";
 import React from "react";
 
-const page = () => {
-  return <div></div>;
+const page = async() => {
+
+  return <MyTransactionsPage />;
 };
 
 export default page;
