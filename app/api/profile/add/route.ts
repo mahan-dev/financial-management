@@ -40,7 +40,9 @@ export const POST = async (req: Request) => {
       category,
       transactionDate,
       userId: new Types.ObjectId(user._id),
+
     });
+    
 
     return NextResponse.json(
       { status: "Success", message: "ذخیره شد", data: newProfile },

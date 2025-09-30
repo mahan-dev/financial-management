@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/helper/auth/authOption";
 import { profileHandler } from "@/helper/myTransactions/ProfileHandler";
-import connectDb from "@/utils/ConnectDb";
+import connectDb from "@/app/utils/ConnectDb";
 
 const MyTransactionsPage = async () => {
     await connectDb()
