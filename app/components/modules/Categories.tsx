@@ -1,5 +1,6 @@
 import React, { SetStateAction } from "react";
 import { FormValues } from "@/modules/interface/FormValues";
+import { CiCoffeeCup } from "react-icons/ci";
 
 interface CategoriesProps {
   form: FormValues;

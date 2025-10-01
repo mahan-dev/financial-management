@@ -1,0 +1,6 @@
+.container{
+    @apply flex flex-wrap justify-center gap-3 my-12;   
+}
+.container__card{
+    @apply w-[200px] flex flex-col border-2  border-blue-400 rounded-md p-2;
+}

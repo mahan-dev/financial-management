@@ -4,13 +4,13 @@ import { Types } from "mongoose";
 import { Session } from "next-auth";
 
 
-interface Profile extends FormValues {
+export interface Profile extends FormValues {
   createdAt: Date;
   updatedAt: Date;
   _id: string;
 }
 
-interface UserProfile {
+export interface UserProfile {
   email: string;
   password: string;
   userId: Types.ObjectId;

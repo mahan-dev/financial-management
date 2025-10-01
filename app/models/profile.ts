@@ -1,6 +1,6 @@
 import { Document, model, Model, models, Schema } from "mongoose";
 
-interface ProfileSchema extends Document {
+export interface ProfileSchema extends Document {
   title: string;
   description: string;
   price: string;
