@@ -4,7 +4,7 @@ import TransactionsInput from "@/modules/TransactionsInput";
 import { ProfileSchema } from "@/models/profile";
 
 interface AddProps {
-  data: ProfileSchema;
+  data?: ProfileSchema;
 }
 const AddTransactionsPage = ({ data }: AddProps) => {
   return (
