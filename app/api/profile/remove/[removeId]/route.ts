@@ -1,7 +1,8 @@
 import connectDb from "@/app/utils/ConnectDb";
 import { NextResponse } from "next/server";
 
-export const POST = async (req: Request) => {
+export const DELETE = async () => {
+  console.log("deleteAPI")
   try {
     await connectDb();
 

@@ -4,17 +4,22 @@ import TextInput from "@/modules/TextInput";
 import styles from "@/modules/styles/transactionsInput/route.module.css";
 import Categories from "@/modules/Categories";
 import { FormValues } from "@/modules/interface/FormValues";
-import { addHandler } from "@/app/helper/transactionInput/AddHandler";
+import { addHandler } from "@/helper/transactionInput/AddHandler";
 import Loader from "@/app/loader/Loader";
-import DatePicker from "@/app/components/modules/CustomDatePicker";
+import DatePicker from "@/modules/CustomDatePicker";
+import { ProfileSchema } from "@/models/profile";
 
-const TransactionsInput = () => {
+interface TransactionsData {
+  data?: ProfileSchema;
+}
+
+const TransactionsInput = ({ data }: TransactionsData) => {
   const [form, setForm] = useState<FormValues>({
-    title: "",
-    description: "",
-    price: "",
-    category: ["none"],
-    transactionDate: new Date(),
+    title: data.title || "",
+    description: data.description || "",
+    price: data.price || "",
+    category: data.category || ["none"],
+    transactionDate: data.transactionDate || new Date(),
   });
 
   const [loading, setLoading] = useState<boolean>(false);
