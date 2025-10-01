@@ -14,7 +14,9 @@ const MyTransactionsPage = async ({ profiles }: TransactionProps) => {
         تراکنش ها
       </h2>
 
-      <TransactionCard profile={profiles.profiles} />
+      <TransactionCard
+        profile={JSON.parse(JSON.stringify(profiles.profiles))}
+      />
     </section>
   );
 };
