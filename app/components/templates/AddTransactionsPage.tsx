@@ -5,12 +5,19 @@ import { ProfileSchema } from "@/models/profile";
 
 interface AddProps {
   data?: ProfileSchema;
+  title?: string;
+  button?: string;
 }
-const AddTransactionsPage = ({ data }: AddProps) => {
+const AddTransactionsPage = ({ data, title, button }: AddProps) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.container__title}> ثبت تراکنش </h2>
-      <TransactionsInput data={JSON.parse(JSON.stringify(data))} />
+      <h2 className={styles.container__title}>
+        {title ? title : "ثبت تراکنش"}
+      </h2>
+      <TransactionsInput
+        data={data &&JSON.parse(JSON.stringify(data))}
+        button={button}
+      />
     </div>
   );
 };

@@ -8,18 +8,21 @@ import { addHandler } from "@/helper/transactionInput/AddHandler";
 import Loader from "@/app/loader/Loader";
 import DatePicker from "@/modules/CustomDatePicker";
 import { ProfileSchema } from "@/models/profile";
+import { editCard } from "@/app/helper/transactionCard/editHandler";
 
 interface TransactionsData {
   data?: ProfileSchema;
+  button?: string;
 }
 
-const TransactionsInput = ({ data }: TransactionsData) => {
+const TransactionsInput = ({ data, button }: TransactionsData) => {
   const [form, setForm] = useState<FormValues>({
-    title: data.title || "",
-    description: data.description || "",
-    price: data.price || "",
-    category: data.category || ["none"],
-    transactionDate: data.transactionDate || new Date(),
+    title: data?.title || "",
+    description: data?.description || "",
+    price: data?.price || "",
+    category: data?.category || ["none"],
+    transactionDate: data?.transactionDate || new Date(),
+    _id: data?._id as string || "",
   });
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -53,7 +56,11 @@ const TransactionsInput = ({ data }: TransactionsData) => {
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await addHandler({ form, setForm, setLoading });
+    if (data) {
+      await editCard({ form, setLoading });
+    } else if (!data) {
+      await addHandler({ form, setForm, setLoading });
+    }
   };
 
   return (
@@ -85,7 +92,7 @@ const TransactionsInput = ({ data }: TransactionsData) => {
           <Loader />
         ) : (
           <button type="submit" disabled={loading}>
-            ذخیره تراکنش
+            {button ? button : "ذخیره تراکنش"}
           </button>
         )}
       </form>

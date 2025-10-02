@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    "customConditions": ["my-condition"],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -18,20 +19,19 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/public/*": ["public/*"],
-      "@/app/*": ["app/*"],
-      "@/elements/*": ["app/components/elements/*"],
-      "@/modules/*": ["app/components/modules/*"],
-      "@/templates/*": ["app/components/templates/*"],
-      "@/layout/*": ["app/components/layout/*"],
-      "@/utils/*":["app/utils/*"],
-      "@/providers/*":["app/providers/*"],
-      "@/helper/*":["app/helper/*"],
+      "@/public/*": ["./public/*"],
+      "@/app/*": ["./app/*"],
+      "@/elements/*": ["./app/components/elements/*"],
+      "@/modules/*": ["./app/components/modules/*"],
+      "@/templates/*": ["./app/components/templates/*"],
+      "@/layout/*": ["./app/components/layout/*"],
+      "@/utils/*":["./app/utils/*"],
+      "@/providers/*":["./app/providers/*"],
+      "@/helper/*":["./app/helper/*"],
       
-      "@/models/*": ["app/models/*"],
+      "@/models/*": ["./app/models/*"],
 
 
     }

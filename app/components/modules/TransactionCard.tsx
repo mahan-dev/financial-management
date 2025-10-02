@@ -6,6 +6,7 @@ import { sp } from "@/utils/ReplaceNumber";
 import styles from "@/modules/styles/transactionCard/route.module.css";
 import { deleteCard } from "@/helper/transactionCard/deleteHandler";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 interface CardProps {
   profile: Profile[];
@@ -19,7 +20,10 @@ const TransactionCard = ({ profile }: CardProps) => {
 
   const deleteHandler = async (id: string) => {
     const res = await deleteCard(id);
-    console.log(res);
+    if (res) {
+      toast.success("پاک شد");
+      router.refresh();
+    }
   };
 
   return (
