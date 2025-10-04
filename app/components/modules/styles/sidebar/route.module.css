@@ -1,6 +1,6 @@
 .container {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    @apply flex flex-shrink-0 w-[180px] h-fit rounded-md p-4;
+    @apply flex flex-shrink-0 w-[180px] h-fit rounded-md p-4 max-md:hidden;
 }
 
 
