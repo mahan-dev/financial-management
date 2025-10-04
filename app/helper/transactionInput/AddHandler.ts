@@ -11,9 +11,15 @@ interface AddProps {
 }
 export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
   try {
-    const { title, description, price, category } = form;
+    const { title, description, price, category, transactionType } = form;
     setLoading(true);
-    if (!title || !description || !price || category.includes("none")) {
+    if (
+      !title ||
+      !description ||
+      !price ||
+      category.includes("none") ||
+      transactionType.includes("none")
+    ) {
       toast.error("فیلد هارا خالی نگذارید", { duration: 2000 });
 
       return;
@@ -34,6 +40,7 @@ export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
         description: "",
         price: "",
         category: ["none"],
+        transactionType: ["none"],
         transactionDate: new Date(),
       });
     }

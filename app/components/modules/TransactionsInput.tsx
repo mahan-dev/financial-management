@@ -21,8 +21,9 @@ const TransactionsInput = ({ data, button }: TransactionsData) => {
     description: data?.description || "",
     price: data?.price || "",
     category: data?.category || ["none"],
+    transactionType: data?.transactionType || ["none"],
     transactionDate: data?.transactionDate || new Date(),
-    _id: data?._id as string || "",
+    _id: (data?._id as string) || "",
   });
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -39,12 +40,29 @@ const TransactionsInput = ({ data, button }: TransactionsData) => {
       name: "description",
       title: "توضیحات",
       type: "text",
+      textarea: true,
     },
     {
       id: "price",
       name: "price",
       title: " مبلغ ",
       type: "text",
+    },
+  ];
+
+  const categoriesValue = [
+    {
+      form: form,
+      setForm: setForm,
+      name: "category",
+      label: "دسته بندی",
+    },
+    {
+      form: form,
+      setForm: setForm,
+      name: "transactionType",
+      label: " نوع تراکنش ",
+      transactionType: true,
     },
   ];
 
@@ -67,12 +85,13 @@ const TransactionsInput = ({ data, button }: TransactionsData) => {
     <section className={styles.container}>
       <form onSubmit={submitHandler}>
         {inputValues.map((item) => {
-          const { name, title, type } = item;
+          const { name, title, type, textarea } = item;
           return (
             <TextInput
               key={title}
               name={name}
               title={title}
+              textarea={textarea}
               type={type}
               onChange={changeHandler}
               value={form[name]}
@@ -80,12 +99,17 @@ const TransactionsInput = ({ data, button }: TransactionsData) => {
           );
         })}
 
-        <Categories
-          form={form}
-          setForm={setForm}
-          name="category"
-          label="دسته بندی"
-        />
+        {categoriesValue.map((item) => (
+          <Categories
+            key={item.name}
+            form={item.form}
+            setForm={item.setForm}
+            name={item.name}
+            label={item.label}
+            transactionType={item.transactionType}
+          />
+        ))}
+
         <DatePicker form={form} setForm={setForm} title="تاریخ تراکنش" />
 
         {loading ? (

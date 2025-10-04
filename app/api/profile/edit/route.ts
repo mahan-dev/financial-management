@@ -10,8 +10,15 @@ import Profile from "@/app/models/profile";
 export const PATCH = async (req: Request) => {
   try {
     await connectDb();
-    const { title, description, price, category, transactionDate, _id } =
-      await req.json();
+    const {
+      title,
+      description,
+      price,
+      category,
+      transactionDate,
+      transactionType,
+      _id,
+    } = await req.json();
     const session = await getServerSession(authOptions);
     if (!session)
       return NextResponse.json(
@@ -42,6 +49,7 @@ export const PATCH = async (req: Request) => {
       !description ||
       !price ||
       category["none"] ||
+      transactionType["none"] ||
       !transactionDate
     )
       return NextResponse.json(

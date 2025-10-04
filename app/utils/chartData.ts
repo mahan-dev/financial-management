@@ -13,5 +13,5 @@ export const DataCollection = async () => {
   const profileNumber = profileLength.profiles.map((item) => +item.price);
   const result = profileNumber.reduce((acc, cur) => acc + cur); //total Transactions
 
-  return result;
+  return result.toString();
 };

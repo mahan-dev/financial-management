@@ -5,6 +5,7 @@ export interface ProfileSchema extends Document {
   description: string;
   price: string;
   category: string[];
+  transactionType: string[];
   transactionDate: Date;
   userId: object;
 }
@@ -26,6 +27,10 @@ const profile = new Schema<ProfileSchema>(
     category: {
       type: [String],
       enum: ["none", "coffee", "store", "bill", "clothe", "other"],
+    },
+    transactionType: {
+      type: [String],
+      enum: ["none", "payment", "received"],
     },
 
     transactionDate: {

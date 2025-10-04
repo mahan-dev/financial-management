@@ -1,7 +1,14 @@
 .container {
     @apply w-fit flex flex-col mt-5 first:mt-0;
 }
-.container input {
+.container input, .container textarea {
     box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    @apply mt-2 p-2 text-gray-600 rounded-md ;
+    @apply mt-2 p-2 text-gray-600 border-2 border-transparent rounded-md  transition-all duration-150;
+    &:hover , &:focus {
+        @apply border-2 border-blue-500;
+    }
+}
+
+.container textarea {
+    @apply h-[40px] max-h-[200px];
 }

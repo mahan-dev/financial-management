@@ -4,5 +4,6 @@ export interface FormValues {
   price: string;
   category: string[];
   transactionDate: Date;
+  transactionType: string[];
   _id?: string;
 }

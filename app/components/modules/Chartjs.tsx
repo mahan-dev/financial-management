@@ -6,19 +6,24 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
 
 import { DataCollection } from "@/app/utils/chartData";
 import Loader from "@/app/loader/Loader";
-// import { Data } from "@/utils/chartData";
+import { ChartJsFont } from "@/app/utils/chartJsFont";
+import { sp } from "@/app/utils/ReplaceNumber";
 
-// Register needed chart.js components
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
 const ChartJs = () => {
-  const [data, setData] = useState<number | null>(null);
+  const [data, setData] = useState<string | null>(null);
+  const [pNumber, setPnumber] = useState<string>(null);
+
+  ChartJsFont(); // Chart Font
 
   const dataHandler = async () => {
     const res = await DataCollection();
-    setData(res);
+    if (res) {
+      setData(res);
+      setPnumber(sp(res));
+    }
   };
-  console.log(data);
 
   useEffect(() => {
     dataHandler();
@@ -37,8 +42,9 @@ const ChartJs = () => {
   };
 
   return (
-    <div className="mt-3" style={{ width: "200px" }}>
+    <div className="mt-3 text-center" style={{ width: "200px" }}>
       {data !== null ? <Doughnut data={chartData} /> : <Loader />}
+      <p className="mt-4">{data && pNumber}</p>
     </div>
   );
 };
