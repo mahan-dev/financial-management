@@ -3,12 +3,14 @@ import React, { SetStateAction } from "react";
 import Link from "next/link";
 import styles from "@/modules/styles/sidebar/route.module.css";
 
+import { signOut } from "next-auth/react";
+
 import { RiAccountBox2Fill } from "react-icons/ri";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { RiAddBoxFill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
 import { RiAccountCircleFill } from "react-icons/ri";
-import { signOut } from "next-auth/react";
+import { IoClose } from "react-icons/io5";
 
 interface SidebarProps {
   show?: boolean;
@@ -25,6 +27,10 @@ const SideBarContent = ({ show, setShow, email }: SidebarProps) => {
   };
   return (
     <ul className={styles.container__list} onClick={clickHandler}>
+      <IoClose
+        className="text-[1.3rem] md:hidden"
+        onClick={() => setShow(false)}
+      />
       <div className="break-all border-b-2 pb-1 mb-1">
         <RiAccountCircleFill className="text-[2rem] m-auto mb-2" />
         <p className="break-all break-words">{email}</p>
