@@ -11,7 +11,7 @@ export const POST = async (req: Request) => {
   try {
     await connectDb();
     const res: FormValues = await req.json();
-    const { title, description, price, category, transactionDate } = res;
+    const { title, description, price, category, transactionType, transactionDate } = res;
 
     const session = await getServerSession(authOptions);
     if (!session)
@@ -38,6 +38,7 @@ export const POST = async (req: Request) => {
       description,
       price: +price,
       category,
+      transactionType,
       transactionDate,
       userId: new Types.ObjectId(user._id),
 

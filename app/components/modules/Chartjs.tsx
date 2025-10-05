@@ -11,8 +11,14 @@ import { sp } from "@/app/utils/ReplaceNumber";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
+interface ChartData {
+  total: number[];
+  received: number[];
+  payment: number[];
+}
+
 const ChartJs = () => {
-  const [data, setData] = useState<string | null>(null);
+  const [data, setData] = useState<ChartData>(null);
   const [pNumber, setPnumber] = useState<string>(null);
 
   ChartJsFont(); // Chart Font
@@ -21,20 +27,20 @@ const ChartJs = () => {
     const res = await DataCollection();
     if (res) {
       setData(res);
-      setPnumber(sp(res));
+      setPnumber(sp(res.total.toString()));
     }
   };
 
   useEffect(() => {
     dataHandler();
-  });
+  }, []);
+  console.log(data);
   const chartData = {
-    labels: ["کل تراکنشات"],
+    labels: ["کل تراکنشات", "پرداختی", "دریافتی"],
     datasets: [
       {
-        label: "",
-        data: data !== null ? [data] : [],
-        backgroundColor: ["#2563eb"],
+        data: data !== null ? [data.total, data.payment, data.received] : [],
+        backgroundColor: ["#2563eb", "orange", "yellow"],
         borderColor: "gray",
         borderWidth: 0,
       },

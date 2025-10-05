@@ -10,8 +10,24 @@ export const DataCollection = async () => {
   await connectDb();
   const session = await getServerSession(authOptions);
   const [profileLength] = await profileHandler(session);
-  const profileNumber = profileLength.profiles.map((item) => +item.price);
-  const result = profileNumber.reduce((acc, cur) => acc + cur); //total Transactions
+  const { profiles } = profileLength;
 
-  return result.toString();
+  const received = profiles
+    .filter((item) => item.transactionType.includes("received"))
+    .map((item) => Number(item.price))
+    .reduce((acc, cur) => acc + cur);
+
+  const payment = profiles
+    .filter((item) => item.transactionType.includes("payment"))
+    .map((item) => +item.price)
+    .reduce((acc, cur) => acc + cur);
+
+  const profileNumber = profiles.map((item) => +item.price);
+  const totalTransaction = profileNumber.reduce((acc, cur) => acc + cur); //total Transactions
+
+  return {
+    total: [totalTransaction],
+    received : [received],
+    payment : [payment],
+  };
 };

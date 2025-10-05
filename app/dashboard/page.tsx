@@ -7,6 +7,7 @@ import { authOptions } from "@/helper/auth/authOption";
 import connectDb from "@/utils/ConnectDb";
 import User from "@/models/user";
 import { userInterface } from "@/models/interface/userSchema";
+import Profile from "@/models/profile";
 
 interface UserCreatedAt extends userInterface {
   createdAt: string;
@@ -15,6 +16,20 @@ const Dashboard = async () => {
   await connectDb();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/signup");
+
+  const profile = await Profile.find();
+
+  const received = profile
+  
+  
+  
+  console.log(received);
+
+  console.log(received); // ["received", "received", ...]
+
+  const res = received.map((item) => +item.price);
+  const totalPrice = res?.reduce((acc, cur) => acc + cur, 0);
+  console.log(totalPrice);
 
   const user: UserCreatedAt = await User.findOne({ email: session.user.email });
   return <DashboardPage date={user.createdAt} />;

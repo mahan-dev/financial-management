@@ -9,7 +9,6 @@ const page = async () => {
   await connectDb();
   const session = await getServerSession(authOptions);
   const [userProfile] = await profileHandler(session);
-
   return <MyTransactionsPage profiles={userProfile} />;
 };
 
