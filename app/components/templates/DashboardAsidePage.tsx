@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "@/modules/SideBar";
-import styles from "@/templates/styles/dashboardPage/route.module.css";
+import styles from "@/templates/styles/dashboardAsidePage/route.module.css";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/helper/auth/authOption";

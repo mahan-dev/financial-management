@@ -1,41 +1,19 @@
+"use client";
 import Link from "next/link";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/layout/styles/route.module.css";
 import { useSession } from "next-auth/react";
 
 import { HiMenuAlt2 } from "react-icons/hi";
-import SideBarContent from "./SideBarContent";
+import SideBarContent from "@/modules/SideBarContent";
+import {MenuNavigation} from "@/modules/MenuNavigation";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { data } = useSession();
 
-  const clickHandler = useCallback(
-    (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-
-      if (!show) return;
-      console.log("hi");
-      if (menuRef.current.contains(target)) return;
-      console.log("hi");
-      setShow(false);
-
-      document.addEventListener("click", clickHandler);
-      return () => {
-        document.removeEventListener("click", clickHandler);
-      };
-    },
-    [show]
-  );
-
-  useEffect(() => {
-    document.addEventListener("click", clickHandler);
-    return () => {
-      document.removeEventListener("click", clickHandler);
-    };
-  }, [clickHandler]);
-
+  MenuNavigation({ show, setShow, menuRef });
   return (
     <header className={styles.container__header}>
       <ul>
@@ -55,7 +33,11 @@ const Header = () => {
         } `}
         ref={menuRef}
       >
-        <SideBarContent email={data?.user.email} show={show} setShow={setShow} />
+        <SideBarContent
+          email={data?.user.email}
+          show={show}
+          setShow={setShow}
+        />
       </div>
     </header>
   );

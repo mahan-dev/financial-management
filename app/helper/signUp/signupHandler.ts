@@ -29,7 +29,7 @@ export const signupHandler = async ({ form, setLoading }: SignUp) => {
     return true;
   } catch (error) {
     const errorMessage = error?.response?.data.error;
-    console.log(errorMessage);
+
     toast.error(errorMessage, { duration: 2000 });
     return false;
   } finally {

@@ -17,8 +17,6 @@ const Categories = ({
 }: CategoriesProps) => {
   const changeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    console.log(name, value);
-    console.log(form);
 
     setForm({ ...form, [name as keyof FormValues]: [value] });
   };

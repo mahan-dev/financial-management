@@ -2,7 +2,14 @@
 import React, { useEffect, useState } from "react";
 
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+  plugins,
+} from "chart.js";
 
 import { DataCollection } from "@/app/utils/chartData";
 import Loader from "@/app/loader/Loader";
@@ -34,15 +41,13 @@ const ChartJs = () => {
   useEffect(() => {
     dataHandler();
   }, []);
-  console.log(data);
+
   const chartData = {
     labels: ["کل تراکنشات", "پرداختی", "دریافتی"],
     datasets: [
       {
         data: data !== null ? [data.total, data.payment, data.received] : [],
         backgroundColor: ["#2563eb", "orange", "yellow"],
-        borderColor: "gray",
-        borderWidth: 0,
       },
     ],
   };
@@ -50,7 +55,7 @@ const ChartJs = () => {
   return (
     <div className="mt-3 text-center" style={{ width: "200px" }}>
       {data !== null ? <Doughnut data={chartData} /> : <Loader />}
-      <p className="mt-4">{data && pNumber}</p>
+      <p className="mt-4"> کل تراکنشات:  {data && pNumber}</p>
     </div>
   );
 };

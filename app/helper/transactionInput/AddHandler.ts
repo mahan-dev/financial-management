@@ -24,7 +24,7 @@ export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
 
       return;
     }
-    console.log(form);
+
 
     if (isNaN(+price)) {
       toast.error("لطفا شماره وارد کنید", { duration: 2000 });
