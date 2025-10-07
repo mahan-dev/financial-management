@@ -2,6 +2,8 @@ import React from "react";
 
 import { UserProfile } from "@/helper/myTransactions/ProfileHandler";
 import TransactionCard from "@/modules/TransactionCard";
+import SearchBox from "@/modules/SearchBox";
+
 
 interface TransactionProps {
   profiles: UserProfile;
@@ -12,6 +14,8 @@ const MyTransactionsPage = async ({ profiles }: TransactionProps) => {
       <h2 className="bg-blue-200 text-blue-600 text-[1.2rem] font-semibold rounded-md p-2">
         تراکنش ها
       </h2>
+
+      <SearchBox />
 
       <TransactionCard
         profile={JSON.parse(JSON.stringify(profiles.profiles))}

@@ -1,0 +1,7 @@
+
+.container {
+    @apply relative
+}
+.container input {
+    @apply  mt-3 p-2 shadow-md rounded-md;
+}

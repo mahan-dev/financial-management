@@ -19,6 +19,7 @@ export default function RootLayout({ children }: Readonly<RootProps>) {
     <html lang="fa" dir="rtl">
       <body className={myFont.className}>
         <Provider>
+          
           <Layout>{children}</Layout>
         </Provider>
       </body>
