@@ -35,11 +35,11 @@ const Categories = ({
             <option className="cursor-pointer" value="none" disabled>
               انتخاب نشده
             </option>
-            <option value="coffee">کافه</option>
-            <option value="store">مغازه</option>
-            <option value="bill">قبض</option>
-            <option value="clothe">لباس</option>
-            <option value="other">بقیه</option>
+            <option value="کافه">کافه</option>
+            <option value="مغازه">مغازه</option>
+            <option value="قبض">قبض</option>
+            <option value="لباس">لباس</option>
+            <option value="بقیه">بقیه</option>
           </>
         ) : (
           <>

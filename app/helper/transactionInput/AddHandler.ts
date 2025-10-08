@@ -25,13 +25,16 @@ export const addHandler = async ({ form, setForm, setLoading }: AddProps) => {
       return;
     }
 
-
     if (isNaN(+price)) {
       toast.error("لطفا شماره وارد کنید", { duration: 2000 });
       return;
     }
 
-    const res = await axios.post<Response>("/api/profile/add", form);
+    const res = await axios.post<Response>("/api/profile/add", form, {
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
     console.log(res);
     const successMessage = res.status === 200;
     if (successMessage) {

@@ -7,6 +7,7 @@ import styles from "@/modules/styles/transactionCard/route.module.css";
 import { deleteCard } from "@/helper/transactionCard/deleteHandler";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 interface CardProps {
   profile: Profile[];
@@ -35,6 +36,10 @@ const TransactionCard = ({ profile }: CardProps) => {
             <p>{description}</p>
             <p>{sp(price)}</p>
           </div>
+
+          <Link href={`/dashboard/my-transactions/detailsPage/${_id}`} className="bg-blue-100 text-blue-600 rounded-md px-2 py-1">
+            مشخصات
+          </Link>
 
           <div className={styles.card__footer}>
             <button

@@ -1,0 +1,13 @@
+.container {
+    @apply flex flex-col items-center;
+
+}
+
+.container>h2 {
+    @apply w-full text-[1.2rem] text-blue-600 bg-blue-200 rounded-md p-2
+}
+
+.container__content {
+    box-shadow: 0 0px 20px rgba(0,0,0,0.1);
+    @apply w-[250px] p-2 mt-12 flex flex-col items-center gap-2  bg-blue-200 text-blue-600 rounded-md;
+}

@@ -26,7 +26,7 @@ const profile = new Schema<ProfileSchema>(
     },
     category: {
       type: [String],
-      enum: ["none", "coffee", "store", "bill", "clothe", "other"],
+      enum: ["کافه", "مغازه", "قبض", "لباس", "بقیه"],
     },
     transactionType: {
       type: [String],
