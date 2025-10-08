@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 
 export const searchBox = async (search: string) => {

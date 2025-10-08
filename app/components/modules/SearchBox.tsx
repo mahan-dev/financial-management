@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styles from "@/modules/styles/searchBox/route.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { searchBox } from "@/helper/searchTransactions/route";
+import { searchBox } from "@/app/helper/searchTransactions/searchHandler";
 import SearchResult from "@/elements/SearchResult";
 
 const SearchBox = () => {
@@ -13,7 +13,6 @@ const SearchBox = () => {
     queryFn: async () => searchBox(search),
     enabled: !!search,
   });
-
 
   return (
     <div className={styles.container}>
