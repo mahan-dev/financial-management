@@ -1,8 +1,6 @@
-import { authOptions } from "@/app/helper/auth/authOption";
 import User from "@/app/models/user";
 import { hashPassword } from "@/app/utils/auth";
 import connectDb from "@/app/utils/ConnectDb";
-import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {

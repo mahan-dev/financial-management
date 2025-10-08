@@ -8,7 +8,6 @@ import {
   Tooltip,
   Legend,
   ArcElement,
-  plugins,
 } from "chart.js";
 
 import { DataCollection } from "@/app/utils/chartData";

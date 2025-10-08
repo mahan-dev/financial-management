@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "@/layout/styles/route.module.css";
 import { useSession } from "next-auth/react";
 
