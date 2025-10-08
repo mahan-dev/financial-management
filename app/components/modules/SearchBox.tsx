@@ -25,7 +25,7 @@ const SearchBox = () => {
 
       <div className=" w-[180px] m-2 bg-gray-100 absolute shadow-md rounded-md top-16">
         {data
-          ? data.data.data.map((item, index) => (
+          ? data.data.map((item, index) => (
               <SearchResult key={index} data={item} />
             ))
           : ""}
