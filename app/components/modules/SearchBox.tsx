@@ -4,25 +4,33 @@ import styles from "@/modules/styles/searchBox/route.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { searchBox } from "@/app/helper/searchTransactions/searchHandler";
 import SearchResult from "@/elements/SearchResult";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const SearchBox = () => {
   const [search, setSearch] = useState<string>("");
 
   const { data } = useQuery({
     queryKey: ["transactions", search],
-    queryFn: async () => searchBox(search),
+    queryFn: async () => searchBox(search.trim()),
     enabled: !!search,
   });
 
   return (
     <div className={styles.container}>
-      <input
-        type="text"
-        placeholder="جستجو ..."
-        onChange={(e) => setSearch(e.target.value.trim())}
-      />
+      <div className={styles.container__search}>
+        <input
+          type="text"
+          placeholder="جستجو ..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+        <IoCloseCircleOutline
+          className="text-[1.3rem] cursor-pointer"
+          onClick={() => setSearch("")}
+        />
+      </div>
 
-      <div className=" w-[180px] m-2 bg-gray-100 absolute shadow-md rounded-md top-16">
+      <div className={styles.container__result}>
         {data
           ? data.data.map((item, index) => (
               <SearchResult key={index} data={item} />

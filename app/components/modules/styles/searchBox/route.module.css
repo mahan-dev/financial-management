@@ -2,6 +2,10 @@
 .container {
     @apply relative
 }
-.container input {
-    @apply  mt-3 p-2 shadow-md rounded-md;
+.container__search {
+    @apply w-fit flex gap-1 mt-3 p-2 shadow-md rounded-md;
+}
+
+.container__result {
+    @apply w-[180px] m-2 bg-gray-100 absolute shadow-md rounded-md top-12;
 }

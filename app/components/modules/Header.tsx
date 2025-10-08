@@ -6,8 +6,8 @@ import { useSession } from "next-auth/react";
 
 import { HiMenuAlt2 } from "react-icons/hi";
 import SideBarContent from "@/modules/SideBarContent";
-import {MenuNavigation} from "@/modules/MenuNavigation";
-
+import { MenuNavigation } from "@/modules/MenuNavigation";
+import { MdAccountBox } from "react-icons/md";
 const Header = () => {
   const [show, setShow] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -23,8 +23,15 @@ const Header = () => {
       </ul>
 
       <div className={styles.container__status}>
-        <Link href={"/signup"}>ورود</Link>
-        <HiMenuAlt2 onClick={() => setShow(!show)} />
+        {data ? (
+          <MdAccountBox className="text-[1.6rem] max-md:hidden" />
+        ) : (
+          <Link href={"/signup"}>ورود</Link>
+        )}
+
+        <span className={styles.status__menuNavigation}>
+          <HiMenuAlt2 onClick={() => setShow(!show)} />
+        </span>
       </div>
 
       <div

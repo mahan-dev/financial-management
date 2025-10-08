@@ -3,7 +3,7 @@
 }
 
 .container__header {
-    @apply flex justify-between;
+    @apply flex items-center justify-between;
 }
 
 .container__sidebar-display {
@@ -12,7 +12,8 @@
 
 
 
-.container__status svg {
+
+.status__menuNavigation svg {
     @apply text-[1.4rem] md:hidden;
 }
 .container__status a {
