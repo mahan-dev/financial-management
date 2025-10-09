@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
-import { Profile } from "@/helper/myTransactions/ProfileHandler";
-import { sp } from "@/utils/ReplaceNumber";
-
-import styles from "@/modules/styles/transactionCard/route.module.css";
-import { deleteCard } from "@/helper/transactionCard/deleteHandler";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import Link from "next/link";
+
+import { Profile } from "@/helper/myTransactions/ProfileHandler";
+import { deleteCard } from "@/helper/transactionCard/deleteHandler";
+import styles from "@/modules/styles/transactionCard/route.module.css";
+
+import { sp } from "@/utils/ReplaceNumber";
+import { HiArrowNarrowLeft } from "react-icons/hi";
 
 interface CardProps {
   profile: Profile[];
@@ -37,8 +39,12 @@ const TransactionCard = ({ profile }: CardProps) => {
             <p>{sp(price)}</p>
           </div>
 
-          <Link href={`/dashboard/my-transactions/detailsPage/${_id}`} className="bg-blue-100 text-blue-600 rounded-md px-2 py-1">
+          <Link
+            href={`/dashboard/my-transactions/detailsPage/${_id}`}
+            className={styles.card__link}
+          >
             مشخصات
+            <HiArrowNarrowLeft />
           </Link>
 
           <div className={styles.card__footer}>
