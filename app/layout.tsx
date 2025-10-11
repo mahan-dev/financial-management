@@ -1,9 +1,9 @@
+import React from "react";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import Layout from "@/layout/layout";
 import { myFont } from "@/utils/fonts";
 import Provider from "@/providers/Provider";
-import "./globals.css";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
